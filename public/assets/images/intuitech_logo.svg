@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 339.96 70.64">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 0px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-family: Ubuntu, Ubuntu;
+        font-size: 68.22px;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <path class="cls-1" d="m32.63,43.41c-2.18,0-3.94-1.77-3.94-3.94v-14.34c0-5.73-4.66-10.4-10.4-10.4s-10.4,4.66-10.4,10.4v14.34c0,2.18-1.77,3.94-3.94,3.94s-3.94-1.77-3.94-3.94v-14.34C0,15.04,8.2,6.84,18.28,6.84s18.28,8.2,18.28,18.28v14.34c0,2.18-1.77,3.94-3.94,3.94Z"/>
+        <path class="cls-1" d="m32.63,57.75c-10.08,0-18.28-8.2-18.28-18.28v-14.34c0-2.18,1.77-3.94,3.94-3.94s3.94,1.77,3.94,3.94v14.34c0,5.73,4.66,10.4,10.4,10.4s10.4-4.66,10.4-10.4v-14.34c0-2.18,1.77-3.94,3.94-3.94s3.94,1.77,3.94,3.94v14.34c0,10.08-8.2,18.28-18.28,18.28Z"/>
+      </g>
+      <text class="cls-2" transform="translate(64.15 57.75)"><tspan x="0" y="0">intui</tspan><tspan class="cls-4" x="140.26" y="0">t</tspan><tspan class="cls-3" x="167" y="0">ech</tspan></text>
+    </g>
+  </g>
+</svg>

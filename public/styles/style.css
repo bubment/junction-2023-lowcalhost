@@ -1,15 +1,84 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('path/to/ubuntu-regular.woff2') format('woff2'),
+         url('path/to/ubuntu-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .phone-sized-container {
+    border: 1px solid black; /* Remove when project done */
     padding: 20px;
     max-width: 425px;
     width: 100%;
     box-sizing: border-box;
     height: 100%;
+}
+
+.login-container {
+    background: linear-gradient(307deg, #4e947d 0%, #88d2b9 100%);
+}
+
+.login-logo-container {
+    text-align: center;
+    margin: 12vh 0;
+}
+
+.login-logo-container img {
+    max-height: 100px;
+    width: 50%;
+}
+
+.login-form {
+    margin: 10px 0;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.login-button {
+    font-size: 20px;
+    margin-top: 7vh;
+    background: transparent;
+    color: white;
+    border: 3px solid white;
+    border-radius: 37px;
+    padding: 7px 30px;
+}
+
+.error-msg-container {
+    display: none;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px 3px 3px 3px;
+    color: #D8000C;
+    background-color: #FFBABA;
 }
