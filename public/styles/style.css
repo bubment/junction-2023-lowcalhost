@@ -1,4 +1,11 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('path/to/ubuntu-regular.woff2') format('woff2'),
+         url('path/to/ubuntu-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
 
 body {
     display: flex;
@@ -6,6 +13,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .phone-sized-container {
@@ -18,16 +26,17 @@ body {
 }
 
 .login-container {
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: linear-gradient(307deg, #4e947d 0%, #88d2b9 100%);
 }
 
 .login-logo-container {
     text-align: center;
-    margin-top: 25vh;
+    margin: 12vh 0;
 }
 
 .login-logo-container img {
     max-height: 100px;
+    width: 50%;
 }
 
 .login-form {
@@ -36,17 +45,19 @@ body {
 
 .login-form label {
     display: block;
-    margin-bottom: 1px;
+    margin-bottom: 5px;
     color: white;
+    font-size: 16px;
 }
 
 .login-form input {
     width: 100%;
-    padding: 8px;
+    padding: 16px;
     margin-bottom: 15px;
     box-sizing: border-box;
-    border-radius: 16px;
-    border:none
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
 }
 
 .login-form input::placeholder {
@@ -60,12 +71,13 @@ body {
 }
 
 .login-button {
-    margin-top: 10px;
+    font-size: 20px;
+    margin-top: 7vh;
     background: transparent;
     color: white;
-    border: 1px solid white;
-    border-radius: 16px;
-    padding: 5px 15px;
+    border: 3px solid white;
+    border-radius: 37px;
+    padding: 7px 30px;
 }
 
 .error-msg-container {
