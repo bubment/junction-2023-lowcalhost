@@ -1,11 +1,4 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('path/to/ubuntu-regular.woff2') format('woff2'),
-         url('path/to/ubuntu-regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
 
 body {
     display: flex;
