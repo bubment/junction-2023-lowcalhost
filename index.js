@@ -15,11 +15,23 @@ app.set('view engine', 'html');
 
 
 app.get('/', (req, res) => {
-  res.render('index.html');
+  res.render('login.html');
 });
 
-app.get('/about', (req, res) => {
-  res.render('about.html');
+app.get('/voice-recorder', (req, res) => {
+  res.render('voice-recorder.html');
+});
+
+app.get('/authentication', (req, res) => {
+  res.render('authentication.html');
+});
+
+app.get('/auth-result', (req, res) => {
+  res.render('auth-result.html');
+});
+
+app.get('/auth-stats', (req, res) => {
+  res.render('auth-stats.html');
 });
 
 app.listen(port, () => {
