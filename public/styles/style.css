@@ -82,3 +82,13 @@ body {
     color: #D8000C;
     background-color: #FFBABA;
 }
+
+#countdown {
+    height: 20px;
+}
+
+#loadingIcon {
+    display: none;
+    font-size: 24px;
+    color: #007BFF;
+}

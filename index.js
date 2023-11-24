@@ -1,14 +1,14 @@
 const express = require('express');
-const path = require('path'); 
+const path = require('path');
+const fileUpload = require('express-fileupload');
 const app = express();
 const port = 3000;
 
-const services = require('./services'); 
-
+const services = require('./services');
 
 app.use(express.static('public'));
-app.use(express.json())
-
+app.use(express.json());
+app.use(fileUpload());
 
 app.set('views', path.join(__dirname, 'public'));
 
@@ -17,10 +17,16 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.post('/api/login', (req, res) => {
-  console.log(req.body)
-  const { username, password } = req.body
-  const loginResponse = services.login(username, password)
-  res.send(loginResponse)
+  console.log(req.body);
+  const { username, password } = req.body;
+  const loginResponse = services.login(username, password);
+  res.send(loginResponse);
+});
+
+app.post('/api/validateAudio', (req, res) => {
+  const blobData = (req.files.file.data);
+  const response = services.validateAudio(blobData);
+  res.send(response);
 });
 
 
