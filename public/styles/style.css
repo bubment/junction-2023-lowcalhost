@@ -60,12 +60,6 @@ body {
     font-weight: bold;
 }
 
-.login-form input::placeholder {
-    font-size: 14px;
-    opacity: 0.5;
-    color: #939393;
-  }
-
 .text-center {
     text-align: center;
 }
