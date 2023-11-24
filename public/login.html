@@ -7,8 +7,27 @@
     <title>Intuitech</title>
 </head>
 <body>
-    <div class="phone-sized-container">
-        <h1>Login</h1>
+    <div class="phone-sized-container login-container">
+        <div class="login-logo-container">
+            <img src="./assets/images/sample-logo.svg" alt="">
+        </div>
+        <form class="login-form">
+            <label for="username">Username</label>
+            <input value="Tempfilledusername" type="text" id="login-username" name="username" placeholder="Type your username here" onclick="hideErrorMessagee()">
+    
+            <label for="password">Password</label>
+            <input value="Tempfillpassword" type="password" id="login-password" name="password" placeholder="Type password here" onclick="hideErrorMessagee()">
+        </form>
+        <div class="text-center">
+            <button onclick="login()" class="login-button">Login</button>
+        </div>
+        <div id="error-msg-container" class="error-msg-container">
+            <i class="fa fa-times-circle"></i>
+            <span id="error-msg" class="error-msg">SOme testx</span>
+        </div>
+
     </div>
+    <script src="./functions/login.js"></script>
+    <script src="./functions/host_info.js"></script>
 </body>
 </html>

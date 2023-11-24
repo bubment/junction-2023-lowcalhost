@@ -1,3 +1,5 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+
 body {
     display: flex;
     align-items: center;
@@ -7,10 +9,70 @@ body {
 }
 
 .phone-sized-container {
-    border: 1px solid black;
+    border: 1px solid black; /* Remove when project done */
     padding: 20px;
     max-width: 425px;
     width: 100%;
     box-sizing: border-box;
     height: 100%;
+}
+
+.login-container {
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+.login-logo-container {
+    text-align: center;
+    margin-top: 25vh;
+}
+
+.login-logo-container img {
+    max-height: 100px;
+}
+
+.login-form {
+    margin: 10px 0;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 1px;
+    color: white;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    border:none
+}
+
+.login-form input::placeholder {
+    font-size: 14px;
+    opacity: 0.5;
+    color: #939393;
+  }
+
+.text-center {
+    text-align: center;
+}
+
+.login-button {
+    margin-top: 10px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 16px;
+    padding: 5px 15px;
+}
+
+.error-msg-container {
+    display: none;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px 3px 3px 3px;
+    color: #D8000C;
+    background-color: #FFBABA;
 }
