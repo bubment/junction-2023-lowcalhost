@@ -1,5 +1,5 @@
 const localStorageService = new LocalStorageService();
-localStorageService.setItem('authResultState', { isError: false, isStart: true, retryCount: 2 });
+localStorageService.setItem('authResultState', { isError: false, isStart: true, retryCount: 3 });
 
 let isRunning = false;
 let mediaRecorder;
