@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Intuitech</title>
 </head>
+
 <body>
     <div class="phone-sized-container">
-        <h1>Auth-result</h1>
+
+        <div class="result-flex-container">
+            <div class="result-img-container">
+                <img id="result-img" src="./assets/images/success-img.svg" alt="">
+            </div>
+            <p id="result-text">Successful authentication!</p>
+            <div class="result-button-container">
+                <button onclick="redirect()" id="result-button" class="gradient-button-confirm">Done</button>
+            </div>
+        </div>
     </div>
+
+    <script src="./functions/auth-result.js"></script>
+    <script src="./functions/host_info.js"></script>
 </body>
+
 </html>

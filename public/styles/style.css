@@ -1,5 +1,10 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 
+:root {
+    --main-color-dark-green: #4e947d;
+    --main-color-light-green: #88d2b9;
+}
+
 body {
     display: flex;
     align-items: center;
@@ -84,4 +89,38 @@ body {
     display: none;
     font-size: 24px;
     color: #007BFF;
+}
+
+.result-flex-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.result-img-container {
+    width: 40%;
+    margin: 10vh 0 4vh 0;
+}
+
+#result-text {
+    font-size: 20px;
+    text-align: center;
+}
+
+.gradient-button-confirm {
+    background: linear-gradient(270deg, var(--main-color-dark-green) 0%, var(--main-color-light-green) 100%);
+    border: none;
+    font-size: 18px;
+    border-radius: 37px;
+    color: white;
+    padding: 7px 40px;
+}
+
+.result-button-container {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

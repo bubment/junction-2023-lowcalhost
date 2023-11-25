@@ -78,11 +78,11 @@ const sendToServer = () => {
                         startRecording();
                     } else {
                         console.log("success");
-                        //window.location.href = `${NODE_APP_URL}/auth-result`;
+                        window.location.href = `${NODE_APP_URL}/auth-result?success=true`;
                     }
                 } else {
                     console.log("fail");
-                    //window.location.href = `${NODE_APP_URL}/auth-result`;
+                    window.location.href = `${NODE_APP_URL}/auth-result?success=false`;
                 }
             }, 1500);
         })
