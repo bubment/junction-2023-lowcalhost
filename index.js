@@ -29,6 +29,12 @@ app.post('/api/validateAudio', (req, res) => {
   res.send(response);
 });
 
+app.post('/api/saveAudio', (req, res) => {
+  const blobData = (req.files.file.data);
+  const response = services.saveInitialAudio(blobData);
+  res.send(response);
+});
+
 
 app.get('/', (req, res) => {
   res.render('login.html');

@@ -35,5 +35,26 @@ function validateAudio(blob) {
     return (Math.random() > 0.2);
 }
 
+function saveInitialAudio(blob) {
+    //save in db
+    const wavFilePath = 'temp.wav';
+    fs.writeFileSync(wavFilePath, Buffer.from(blob, 'base64'));
+    const finalPath = 'output2.wav';
 
-module.exports = { login, validateAudio }; 
+    ffmpeg()
+        .input(wavFilePath)
+        .audioCodec('libmp3lame')
+        .toFormat('wav')
+        .on('end', () => {
+            console.log('Conversion finished!');
+            fs.unlinkSync(wavFilePath);
+        })
+        .on('error', (err) => {
+            console.error('Error:', err);
+            fs.unlinkSync(wavFilePath);
+        })
+        .save(finalPath);
+}
+
+
+module.exports = { login, validateAudio, saveInitialAudio }; 
