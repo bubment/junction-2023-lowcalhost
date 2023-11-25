@@ -15,7 +15,8 @@ body {
 }
 
 .phone-sized-container {
-    border: 1px solid black; /* Remove when project done */
+    border: 1px solid black;
+    /* Remove when project done */
     padding: 20px;
     max-width: 425px;
     width: 100%;
@@ -23,53 +24,8 @@ body {
     height: 100%;
 }
 
-.login-container {
-    background: linear-gradient(307deg, var(--main-color-dark-green) 0%, var(--main-color-light-green) 100%);
-}
-
-.login-logo-container {
-    text-align: center;
-    margin: 12vh 0;
-}
-
-.login-logo-container img {
-    max-height: 100px;
-    width: 50%;
-}
-
-.login-form {
-    margin: 10px 0;
-}
-
-.login-form label {
-    display: block;
-    margin-bottom: 5px;
-    color: white;
-    font-size: 16px;
-}
-
-.login-form input {
-    width: 100%;
-    padding: 16px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    border-radius: 12px;
-    border: none;
-    font-weight: bold;
-}
-
 .text-center {
     text-align: center;
-}
-
-.login-button {
-    font-size: 20px;
-    margin-top: 7vh;
-    background: transparent;
-    color: white;
-    border: 3px solid white;
-    border-radius: 37px;
-    padding: 7px 30px;
 }
 
 .error-msg-container {
@@ -80,50 +36,6 @@ body {
     color: #D8000C;
     background-color: #FFBABA;
 }
-
-#countdown {
-    height: 20px;
-}
-
-#loadingIcon {
-    display: none;
-    font-size: 24px;
-    color: #007BFF;
-}
-
-.result-flex-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-}
-
-.result-img-container {
-    width: 40%;
-    margin: 10vh 0 4vh 0;
-}
-
-#result-text {
-    font-size: 20px;
-    text-align: center;
-}
-
-.gradient-button-confirm {
-    background: linear-gradient(270deg, var(--main-color-dark-green) 0%, var(--main-color-light-green) 100%);
-    border: none;
-    font-size: 18px;
-    border-radius: 37px;
-    color: white;
-    padding: 7px 40px;
-}
-
-.result-button-container {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} 
 
 .header-container {
     height: 50px;
@@ -159,19 +71,14 @@ body {
     text-align: center;
 }
 
-.record-button {
-    width: 60%;
-    height: 230px;
-    background-color: #efefef;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 18px;
-    box-shadow: 4px 5px 3.5px rgba(0,0,0,0.15);
+.gradient-button {
+    background: linear-gradient(270deg, var(--main-color-dark-green) 0%, var(--main-color-light-green) 100%);
+    border: none;
+    font-size: 18px;
+    border-radius: 37px;
+    color: white;
 }
 
-.record-button img {
-    height: 110px;
-    text-align: center;
+.small-button {
+    padding: 7px 40px;
 }

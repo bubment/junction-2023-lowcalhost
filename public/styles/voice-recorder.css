@@ -1,0 +1,16 @@
+.record-button {
+    width: 60%;
+    height: 230px;
+    background-color: #efefef;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    box-shadow: 4px 5px 3.5px rgba(0, 0, 0, 0.15);
+}
+
+.record-button img {
+    height: 110px;
+    text-align: center;
+}

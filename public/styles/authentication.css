@@ -1,0 +1,9 @@
+#countdown {
+    height: 20px;
+}
+
+#loadingIcon {
+    display: none;
+    font-size: 24px;
+    color: #007BFF;
+}

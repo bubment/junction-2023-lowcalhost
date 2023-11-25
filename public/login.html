@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/login.css">
     <title>Intuitech</title>
 </head>
+
 <body>
     <div class="phone-sized-container login-container">
         <div class="login-logo-container">
@@ -13,10 +16,12 @@
         </div>
         <form class="login-form">
             <label for="username">Name *</label>
-            <input value="Tempfilledusername" type="text" id="login-username" name="username" onclick="hideErrorMessagee()">
-    
+            <input value="Tempfilledusername" type="text" id="login-username" name="username"
+                onclick="hideErrorMessagee()">
+
             <label for="password">Password *</label>
-            <input value="Tempfillpassword" type="password" id="login-password" name="password" onclick="hideErrorMessagee()">
+            <input value="Tempfillpassword" type="password" id="login-password" name="password"
+                onclick="hideErrorMessagee()">
         </form>
         <div class="text-center">
             <button onclick="login()" class="login-button">Sign up</button>
@@ -30,4 +35,5 @@
     <script src="./functions/login.js"></script>
     <script src="./functions/host_info.js"></script>
 </body>
+
 </html>

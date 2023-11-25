@@ -1,0 +1,25 @@
+.result-flex-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.result-img-container {
+    height: 30%;
+    width: 40%;
+    margin: 10vh 0 4vh 0;
+}
+
+#result-text {
+    font-size: 20px;
+    text-align: center;
+}
+
+.result-button-container {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
