@@ -5,7 +5,7 @@ let audioChunks = [];
 let countdownInterval;
 let currentCount = 1;
 const MAX_COUNT = 2;
-const AUTH_INTERVAL = 3;
+const AUTH_INTERVAL = 5;
 
 const localStorageService = new LocalStorageService();
 const state = localStorageService.getItem('authResultState');
@@ -23,7 +23,7 @@ const initCountdownInterval = (countdownValue) => {
         if (countdownValue < 0) {
             clearInterval(countdownInterval);
             stopRecording();
-            countdownElement.textContent = "";
+            countdownElement.textContent = `00:00`;
         }
     }, 1000);
 };
@@ -64,7 +64,8 @@ const stopRecording = () => {
 };
 
 const sendToServer = () => {
-    startLoading();
+    activateLoader();
+
     const formData = new FormData();
     formData.append('file', audioBlob);
     formData.append('answer', currentAnswer);
@@ -76,23 +77,20 @@ const sendToServer = () => {
     })
         .then(response => response.text())
         .then(result => {
-            // remove timeout, add loader
-            setTimeout(() => {
-                stopLoading();
-                if (result == 'true') {
-                    if (currentCount < MAX_COUNT) {
-                        currentCount++;
-                        switchImage();
-                        startRecording();
-                    } else {
-                        localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isError: false });
-                        window.location.href = `${NODE_APP_URL}/auth-result`;
-                    }
+            if (result == 'true') {
+                if (currentCount < MAX_COUNT) {
+                    currentCount++;
+                    switchImage();
+                    startRecording();
+                    deactivateLoader();
                 } else {
-                    localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isError: true });
+                    localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isError: false });
                     window.location.href = `${NODE_APP_URL}/auth-result`;
                 }
-            }, 1500);
+            } else {
+                localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isError: true });
+                window.location.href = `${NODE_APP_URL}/auth-result`;
+            }
         })
         .catch(error => {
             console.error('Error sending to server:', error);
@@ -108,14 +106,6 @@ const switchImage = () => {
 
     authQuestion.innerHTML = authTest.question;
     authImage.src = authTest.asset;
-};
-
-const startLoading = () => {
-    //document.getElementById("loadingIcon").style.display = "block";
-};
-
-const stopLoading = () => {
-    //document.getElementById("loadingIcon").style.display = "none";
 };
 
 switchImage();

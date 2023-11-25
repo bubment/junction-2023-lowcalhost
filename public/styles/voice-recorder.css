@@ -1,17 +1,43 @@
+.voice-flex-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.record-button-container {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
 .record-button {
-    width: 60vw;
+    width: 70%;
     height: 35vh;
     background-color: #efefef;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 18px;
     box-shadow: 4px 5px 3.5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
 
 .record-button img {
     max-height: 110px;
     max-width: 100%;
     text-align: center;
+}
+
+@media screen and (min-width:961px) {
+    .record-button {
+        max-width: 500px;
+    }
+
+    .big-button-fixed-container {
+        max-width: 500px;
+    }
 }

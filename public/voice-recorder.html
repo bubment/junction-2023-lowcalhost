@@ -10,25 +10,29 @@
 </head>
 
 <body>
-    <div class="phone-sized-container">
+    <div class="voice-flex-container">
         <div class="header-container">
             <div id="username-container" class="username-container"></div>
-            <div class="header-logout-btn" onclick="logout()"> <img src="./assets/images/logout-icon.svg" alt=""></div>
-        </div>
-        <div class="header-after-space-wrapper"></div>
-        <div class="text-center">
-            <div id="voice-recorder-instruction" class="instruction-text">
-                Please read the displayer text after pressing the Record button
+            <div class="header-logout-btn" onclick="logout()"> <img src="./assets/images/logout-icon.svg" alt="">
             </div>
         </div>
 
-        <div class="record-button" onclick="startRecording()">
-            <img id="record-action-image" src="./assets/images/record-button-icon.svg" alt="">
+        <div id="voice-recorder-instruction" class="instruction-text">
+            Please read the displayer text after pressing the record button to collect your voice sample!
+        </div>
+
+        <div class="record-button-container">
+            <div class="record-button" onclick="startRecording()">
+                <img id="record-action-image" src="./assets/images/record-button.svg" alt="">
+            </div>
         </div>
         <div class="big-button-fixed-container">
             <button onclick="navigateToAuthentication()" id="start-authentication" disabled
                 class="big-button gradient-button">Authentication</button>
         </div>
+    </div>
+    <div class="loader-container" id="loader-container">
+        <img src="./assets/images/loader.svg" alt="">
     </div>
 
     <script src="./functions/host_info.js"></script>

@@ -7,13 +7,19 @@ usernameContainer.innerText = localStorageService.getItem("username");
 let isRunning = false;
 let mediaRecorder;
 let audioChunks = [];
-// Check if exists in the database !!
 
 function startRecording() {
     if (isRunning == true) {
         stopMediaRecorder();
         const startAuthenticationButton = document.getElementById("start-authentication");
         startAuthenticationButton.disabled = false;
+
+        const recordPanel = document.getElementById("record-action-image");
+        recordPanel.src = "../assets/images/correct.svg";
+
+        const voiceRecorderInstruction = document.getElementById("voice-recorder-instruction");
+        voiceRecorderInstruction.innerHTML = "Thank you, you can now start the authentication process!";
+        voiceRecorderInstruction.classList.remove("font-bold");
     } else {
         isRunning = true;
 
@@ -62,7 +68,7 @@ function saveInitialRecording(audioBlob) {
     const formData = new FormData();
     formData.append('file', audioBlob);
     formData.append('username', localStorageService.getItem('username'));
-
+    activateLoader();
     fetch('http://localhost:3000/api/saveAudio', {
         method: 'POST',
         body: formData
@@ -73,6 +79,9 @@ function saveInitialRecording(audioBlob) {
         })
         .catch(error => {
             console.error('Error sending to server:', error);
+        })
+        .finally(() => {
+            deactivateLoader();
         });
 }
 

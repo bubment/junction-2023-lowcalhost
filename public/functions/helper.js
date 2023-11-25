@@ -4,15 +4,15 @@ function logout() {
 }
 
 function activateLoader() {
-    const loader = document.getElementById("loader-container")
-    loader.style.display = "flex"
+    const loader = document.getElementById("loader-container");
+    loader.style.display = "flex";
 }
 
 function deactivateLoader() {
-    const loader = document.getElementById("loader-container")
-    loader.style.display = "none"
+    const loader = document.getElementById("loader-container");
+    loader.style.display = "none";
 }
 
 async function fakeWait(milliseconds) {
     await new Promise(resolve => setTimeout(resolve, milliseconds));
-  }
+}

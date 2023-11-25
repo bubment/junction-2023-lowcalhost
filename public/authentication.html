@@ -10,21 +10,24 @@
 </head>
 
 <body>
-    <div class="phone-sized-container">
-        <div class="auth-flex-container">
-            <div class="auth-decor-img-container">
-                <img id="auth-img-decor" src="../assets/images/record-voice.gif" alt="">
-            </div>
-            <div id="auth-countdown"></div>
-            <p id="auth-question"></p>
-            <div class="auth-img-container">
-                <img id="auth-img">
-            </div>
+    <div class="auth-flex-container">
+        <div class="auth-decor-img-container">
+            <img id="auth-img-decor" src="../assets/images/record-voice.gif" alt="">
         </div>
+        <div id="auth-countdown"></div>
+        <p id="auth-question"></p>
+        <div class="auth-img-container">
+            <img id="auth-img" src="" alt="">
+        </div>
+    </div>
+
+    <div class="loader-container" id="loader-container">
+        <img src="./assets/images/loader.svg" alt="">
     </div>
 </body>
 
 <script src="./functions/auth-tests.js"></script>
+<script src="./functions/helper.js"></script>
 <script src="./functions/localstorage-service.js"></script>
 <script src="./functions/authentication.js"></script>
 <script src="./functions/host_info.js"></script>

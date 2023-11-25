@@ -6,18 +6,22 @@
 }
 
 .result-img-container {
-    margin: 6vh 0 4vh 0;
+    height: 30%;
+    margin: 10vh 0 4vh 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 }
 
 #result-img {
-    height: 175px;
-    width: 100%;
     object-fit: contain;
+    height: 100%;
 }
 
 #result-text {
     font-size: 20px;
     text-align: center;
+    padding: 20px;
 }
 
 .result-button-container {
