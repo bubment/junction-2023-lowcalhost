@@ -76,7 +76,7 @@ const sendToServer = () => {
                 console.log("Server response:", result);
                 result;
                 if (result == 'true') {
-                    if (currentCount <= MAX_COUNT) {
+                    if (currentCount < MAX_COUNT) {
                         currentCount++;
                         console.log('switch image'); //TODO
                         startRecording();

@@ -32,7 +32,7 @@ function validateAudio(blob) {
         })
         .save(finalPath);
 
-    return (Math.random() > 0.5);
+    return (Math.random() > 0.2);
 }
 
 
