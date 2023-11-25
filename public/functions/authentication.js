@@ -71,14 +71,13 @@ const sendToServer = () => {
     })
         .then(response => response.text())
         .then(result => {
+            // remove timeout, add loader
             setTimeout(() => {
                 stopLoading();
-                console.log("Server response:", result);
-                result;
                 if (result == 'true') {
                     if (currentCount < MAX_COUNT) {
                         currentCount++;
-                        console.log('switch image'); //TODO
+                        // TODO switch image
                         startRecording();
                     } else {
                         localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isError: false });
