@@ -1,6 +1,9 @@
 const localStorageService = new LocalStorageService();
 localStorageService.setItem('authResultState', { isError: false, isStart: true, retryCount: 3 });
 
+let usernameContainer = document.getElementById("username-container");
+usernameContainer.innerText = localStorageService.getItem("username");
+
 let isRunning = false;
 let mediaRecorder;
 let audioChunks = [];
