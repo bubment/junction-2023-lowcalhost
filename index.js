@@ -25,17 +25,20 @@ app.post('/api/login', (req, res) => {
 
 app.post('/api/validateAudio', (req, res) => {
   const answer = req.body.answer;
+  const username = req.body.username;
+  console.log(username);
   const blobData = req.files.file.data;
-  const response = services.validateAudio(blobData, answer);
+  const response = services.validateAudio(blobData, answer, username);
   res.send(response);
 });
 
 app.post('/api/saveAudio', (req, res) => {
   const blobData = (req.files.file.data);
-  const response = services.saveInitialAudio(blobData);
+  const username = req.body.username;
+  console.log(username);
+  const response = services.saveInitialAudio(blobData, username);
   res.send(response);
 });
-
 
 app.get('/', (req, res) => {
   res.render('login.html');

@@ -13,7 +13,7 @@ function login(username, password) {
     };
 }
 
-function validateAudio(blob) {
+function validateAudio(blob, answer, username) {
     const wavFilePath = 'temp.wav';
     fs.writeFileSync(wavFilePath, Buffer.from(blob, 'base64'));
     const finalPath = 'output.wav';
@@ -35,7 +35,7 @@ function validateAudio(blob) {
     return (Math.random() > 0.2);
 }
 
-function saveInitialAudio(blob) {
+function saveInitialAudio(blob, username) {
     //save in db
     const wavFilePath = 'temp.wav';
     fs.writeFileSync(wavFilePath, Buffer.from(blob, 'base64'));

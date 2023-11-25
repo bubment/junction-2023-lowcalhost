@@ -58,6 +58,7 @@ function stopMediaRecorder() {
 function saveInitialRecording(audioBlob) {
     const formData = new FormData();
     formData.append('file', audioBlob);
+    formData.append('username', localStorageService.getItem('username'));
 
     fetch('http://localhost:3000/api/saveAudio', {
         method: 'POST',

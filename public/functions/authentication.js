@@ -68,6 +68,7 @@ const sendToServer = () => {
     const formData = new FormData();
     formData.append('file', audioBlob);
     formData.append('answer', currentAnswer);
+    formData.append('username', localStorageService.getItem('username'));
 
     fetch('http://localhost:3000/api/validateAudio', {
         method: 'POST',
