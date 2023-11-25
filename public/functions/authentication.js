@@ -2,7 +2,11 @@ let mediaRecorder;
 let audioBlob;
 let audioChunks = [];
 let countdownInterval;
-let COUNT = 1;
+let currentCount = 1;
+const MAX_COUNT = 2;
+
+const localStorageService = new LocalStorageService();
+localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isStart: false });
 
 const initCountdownInterval = (countdownValue) => {
     const countdownElement = document.getElementById('countdown');
@@ -72,17 +76,17 @@ const sendToServer = () => {
                 console.log("Server response:", result);
                 result;
                 if (result == 'true') {
-                    if (COUNT <= 2) {
-                        COUNT++;
-                        console.log('switch image');
+                    if (currentCount <= MAX_COUNT) {
+                        currentCount++;
+                        console.log('switch image'); //TODO
                         startRecording();
                     } else {
-                        console.log("success");
-                        window.location.href = `${NODE_APP_URL}/auth-result?success=true`;
+                        localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isError: false });
+                        window.location.href = `${NODE_APP_URL}/auth-result`;
                     }
                 } else {
-                    console.log("fail");
-                    window.location.href = `${NODE_APP_URL}/auth-result?success=false`;
+                    localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isError: true });
+                    window.location.href = `${NODE_APP_URL}/auth-result`;
                 }
             }, 1500);
         })
@@ -99,5 +103,4 @@ const stopLoading = () => {
     document.getElementById("loadingIcon").style.display = "none";
 };
 
-document.getElementById('startRecording').addEventListener('click', startRecording);
-document.getElementById('stopRecording').addEventListener('click', stopRecording);
+startRecording();
