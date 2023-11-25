@@ -11,11 +11,20 @@
 
 <body>
     <div class="phone-sized-container">
-        <div id="countdown"></div>
-        <div id="loadingIcon">Loading...</div>
+        <div class="auth-flex-container">
+            <div class="auth-decor-img-container">
+                <img id="auth-img-decor" src="../assets/images/record-voice.svg" alt="">
+            </div>
+            <div id="auth-countdown"></div>
+            <p id="auth-question"></p>
+            <div class="auth-img-container">
+                <img id="auth-img">
+            </div>
+        </div>
     </div>
 </body>
 
+<script src="./functions/auth-tests.js"></script>
 <script src="./functions/localstorage-service.js"></script>
 <script src="./functions/authentication.js"></script>
 <script src="./functions/host_info.js"></script>

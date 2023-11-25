@@ -24,8 +24,9 @@ app.post('/api/login', (req, res) => {
 });
 
 app.post('/api/validateAudio', (req, res) => {
-  const blobData = (req.files.file.data);
-  const response = services.validateAudio(blobData);
+  const answer = req.body.answer;
+  const blobData = req.files.file.data;
+  const response = services.validateAudio(blobData, answer);
   res.send(response);
 });
 

@@ -1,15 +1,18 @@
 let mediaRecorder;
 let audioBlob;
+let currentAnswer;
 let audioChunks = [];
 let countdownInterval;
 let currentCount = 1;
 const MAX_COUNT = 2;
+const AUTH_INTERVAL = 3;
 
 const localStorageService = new LocalStorageService();
-localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isStart: false });
+const state = localStorageService.getItem('authResultState');
+localStorageService.setItem('authResultState', { ...state, isStart: false, retryCount: state.retryCount - 1 });
 
 const initCountdownInterval = (countdownValue) => {
-    const countdownElement = document.getElementById('countdown');
+    const countdownElement = document.getElementById('auth-countdown');
     countdownElement.textContent = `00:0${countdownValue}`;
     countdownValue--;
 
@@ -26,7 +29,7 @@ const initCountdownInterval = (countdownValue) => {
 };
 
 const startRecording = () => {
-    initCountdownInterval(3);
+    initCountdownInterval(AUTH_INTERVAL);
     navigator.mediaDevices.getUserMedia({ audio: true })
         .then(stream => {
             mediaRecorder = new MediaRecorder(stream);
@@ -51,7 +54,7 @@ const startRecording = () => {
 };
 
 const stopRecording = () => {
-    const countdownElement = document.getElementById('countdown');
+    const countdownElement = document.getElementById('auth-countdown');
 
     if (mediaRecorder && mediaRecorder.state !== 'inactive') {
         mediaRecorder.stop();
@@ -64,6 +67,7 @@ const sendToServer = () => {
     startLoading();
     const formData = new FormData();
     formData.append('file', audioBlob);
+    formData.append('answer', currentAnswer);
 
     fetch('http://localhost:3000/api/validateAudio', {
         method: 'POST',
@@ -77,7 +81,7 @@ const sendToServer = () => {
                 if (result == 'true') {
                     if (currentCount < MAX_COUNT) {
                         currentCount++;
-                        // TODO switch image
+                        switchImage();
                         startRecording();
                     } else {
                         localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), isError: false });
@@ -94,12 +98,24 @@ const sendToServer = () => {
         });
 };
 
+const switchImage = () => {
+    const authTest = testArray[Math.floor(Math.random() * testArray.length)];
+    const authQuestion = document.getElementById("auth-question");
+    const authImage = document.getElementById("auth-img");
+
+    currentAnswer = authTest.answer;
+
+    authQuestion.innerHTML = authTest.question;
+    authImage.src = authTest.asset;
+};
+
 const startLoading = () => {
-    document.getElementById("loadingIcon").style.display = "block";
+    //document.getElementById("loadingIcon").style.display = "block";
 };
 
 const stopLoading = () => {
-    document.getElementById("loadingIcon").style.display = "none";
+    //document.getElementById("loadingIcon").style.display = "none";
 };
 
+switchImage();
 startRecording();

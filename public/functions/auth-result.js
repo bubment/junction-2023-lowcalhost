@@ -26,7 +26,6 @@ if (resultState.isStart) {
             resultText.innerText = `Identification failed! You have ${resultState.retryCount} chance to try again!`;
             resultButton.innerText = "Try Again";
             redirectLink = `${NODE_APP_URL}/authentication`;
-            localStorageService.setItem('authResultState', { ...localStorageService.getItem('authResultState'), retryCount: resultState.retryCount - 1 });
         } else {
             resultImage.src = "./assets/images/warning-img.svg";
             resultText.innerText = "Authentication failed!";
