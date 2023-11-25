@@ -140,3 +140,5 @@ dist
 
 # test files
 *.mp3
+
+*.wav
