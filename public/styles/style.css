@@ -24,7 +24,7 @@ body {
 }
 
 .login-container {
-    background: linear-gradient(307deg, #4e947d 0%, #88d2b9 100%);
+    background: linear-gradient(307deg, var(--main-color-dark-green) 0%, var(--main-color-light-green) 100%);
 }
 
 .login-logo-container {
@@ -123,4 +123,53 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+.header-container {
+    height: 50px;
+    width: 100%;
+    background-color: var(--main-color-dark-green);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username-container {
+    color: white;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.header-logout-btn img {
+    height: 22px;
+    margin-right: 15px;
+}
+
+.header-after-space-wrapper {
+    height: 29px;
+}
+
+.instruction-text {
+    font-size: 16px;
+    margin: 40px 0;
+    max-width: 85vw;
+    text-align: center;
+}
+
+.record-button {
+    width: 60%;
+    height: 230px;
+    background-color: #efefef;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    box-shadow: 4px 5px 3.5px rgba(0,0,0,0.15);
+}
+
+.record-button img {
+    height: 110px;
+    text-align: center;
 }
