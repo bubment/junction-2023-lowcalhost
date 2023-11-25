@@ -12,5 +12,6 @@
 
 .record-button img {
     height: 110px;
+    max-width: 80%;
     text-align: center;
 }

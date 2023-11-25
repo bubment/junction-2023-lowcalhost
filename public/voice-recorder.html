@@ -13,7 +13,7 @@
     <div class="phone-sized-container">
         <div class="header-container">
             <div class="username-container">Vanda Zsófia Szűcs</div>
-            <div class="header-logout-btn"> <img src="./assets/images/logout-icon.svg" alt=""></div>
+            <div class="header-logout-btn" onclick="logout()"> <img src="./assets/images/logout-icon.svg" alt=""></div>
         </div>
         <div class="header-after-space-wrapper"></div>
         <div class="text-center">
@@ -22,17 +22,17 @@
             </div>
         </div>
 
-        <div class="record-button">
-            <img src="./assets/images/record-button-icon.svg" alt="">
+        <div class="record-button" onclick="startRecording()">
+            <img id="record-action-image" src="./assets/images/record-button-icon.svg" alt="">
         </div>
         <div class="big-button-fixed-container">
-            <button class="big-button gradient-button">Authentication</button>
+            <button onclick="navigateToAuthentication()" id="start-authentication" disabled class="big-button gradient-button">Authentication</button>
         </div>
-
-
-
-
     </div>
+
+    <script src="./functions/host_info.js"></script>
+    <script src="./functions/helper.js"></script>
+    <script src="./functions/voice-recorder.js"></script>
 </body>
 
 </html>

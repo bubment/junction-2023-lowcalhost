@@ -94,3 +94,8 @@ body {
     padding: 10px 22vw;
     font-size: 24px;
 }
+
+.big-button:disabled,
+.big-button[disabled]{
+  background: #bebebe;
+}
