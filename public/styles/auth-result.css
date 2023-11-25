@@ -6,9 +6,13 @@
 }
 
 .result-img-container {
-    height: 30%;
-    width: 40%;
-    margin: 10vh 0 4vh 0;
+    margin: 6vh 0 4vh 0;
+}
+
+#result-img {
+    height: 175px;
+    width: 100%;
+    object-fit: contain;
 }
 
 #result-text {
