@@ -133,3 +133,10 @@ dist
 .venv
 
 .idea/
+*.pyc
+
+# models
+*.ckpt
+
+# test files
+*.mp3
