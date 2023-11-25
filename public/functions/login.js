@@ -1,6 +1,8 @@
 const localStorageService = new LocalStorageService();
 localStorageService.clean();
 
+
+
 async function login() {
     const username = document.getElementById("login-username").value
     const password = document.getElementById("login-password").value
@@ -11,7 +13,8 @@ async function login() {
     }
 
     const loginReqBody = { username, password }
-
+    activateLoader()
+    await fakeWait(1500)
     const response = await fetch(`${NODE_APP_URL}/api/login`, {
         method: "POST",
         mode: "cors", 
@@ -22,6 +25,7 @@ async function login() {
         body: JSON.stringify(loginReqBody),
       });
       const result = await response.json();
+      deactivateLoader()
       if (result.success) {
         window.location.href = `${NODE_APP_URL}/voice-recorder`;
       } else {

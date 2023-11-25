@@ -103,3 +103,18 @@ body {
 .font-bold {
     font-weight: bold;
 }
+
+.loader-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(124, 124, 124, 0.78);
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.loader-container img {
+    height: 200px;
+}
