@@ -99,3 +99,7 @@ body {
 .big-button[disabled]{
   background: #bebebe;
 }
+
+.font-bold {
+    font-weight: bold;
+}
