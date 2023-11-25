@@ -19,7 +19,7 @@ function startRecording() {
         voiceRecorderInstruction.classList.add("font-bold");
 
         const recordPanel = document.getElementById("record-action-image");
-        recordPanel.src = "../assets/images/record-voice.svg";
+        recordPanel.src = "../assets/images/record-voice.gif";
 
         startMediaRecorder();
     }
