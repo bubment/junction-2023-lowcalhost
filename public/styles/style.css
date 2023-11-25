@@ -1,4 +1,4 @@
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
     --main-color-dark-green: #4e947d;
@@ -96,8 +96,8 @@ body {
 }
 
 .big-button:disabled,
-.big-button[disabled]{
-  background: #bebebe;
+.big-button[disabled] {
+    background: #bebebe;
 }
 
 .font-bold {
