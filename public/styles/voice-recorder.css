@@ -6,6 +6,10 @@
     height: 100%;
 }
 
+#voice-recorder-instruction {
+    height: 60px;
+}
+
 .record-button-container {
     padding: 20px;
     width: 100%;
