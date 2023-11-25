@@ -1,3 +1,6 @@
+const localStorageService = new LocalStorageService();
+localStorageService.clean();
+
 async function login() {
     const username = document.getElementById("login-username").value
     const password = document.getElementById("login-password").value
