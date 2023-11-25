@@ -25,18 +25,18 @@ app.post('/api/login', (req, res) => {
   res.send(loginResponse);
 });
 
-app.post('/api/validateAudio', (req, res) => {
+app.post('/api/validateAudio', async (req, res) => {
   const answer = req.body.answer;
   const username = req.body.username;
   const blobData = req.files.file.data;
-  const response = services.validateAudio(blobData, answer, username);
+  const response = await services.validateAudio(blobData, answer, username);
   res.send(response);
 });
 
-app.post('/api/saveAudio', (req, res) => {
+app.post('/api/saveAudio', async (req, res) => {
   const blobData = req.files.file.data;
   const username = req.body.username;
-  const response = services.saveInitialAudio(blobData, username);
+  const response = await services.saveInitialAudio(blobData, username);
   res.send(response);
 });
 
@@ -64,6 +64,8 @@ app.get('/auth-stats', (req, res) => {
   res.render('auth-stats.html');
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+const hostname = "localhost"
+
+app.listen(port, hostname,() => {
+  console.log(`Server is running at http://${hostname}:${port}`);
 });

@@ -8,4 +8,16 @@ function asyncGetUser(username) {
   return User.findOne({ where: { username: username } });
 }
 
-module.exports = { asyncCreateUser, asyncGetUser };
+async function updateUserVerificationSample(username, voice_sample) {
+  const user = await asyncGetUser(username)
+  user.verification_sample = voice_sample;
+  await user.save()
+}
+
+async function updateUserVoiceSample(username, voice_sample) { 
+  const user = await asyncGetUser(username)
+  user.voice_sample = voice_sample;
+  await user.save()
+}
+
+module.exports = { asyncCreateUser, asyncGetUser, updateUserVerificationSample, updateUserVoiceSample };

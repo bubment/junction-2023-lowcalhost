@@ -7,3 +7,4 @@ class User(BaseModel):
     username = CharField(unique=True)
     password = CharField()
     voice_sample = BlobField()
+    verification_sample = BlobField(null=True)

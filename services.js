@@ -1,6 +1,7 @@
 const fs = require('fs');
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
+const user = require('./public/functions/user');
 ffmpeg.setFfmpegPath(ffmpegPath);
 
 function login(username, password) {
@@ -13,12 +14,12 @@ function login(username, password) {
     };
 }
 
-function validateAudio(blob, answer, username) {
-    const wavFilePath = 'temp.wav';
+async function validateAudio(blob, answer, username) {
+    const wavFilePath = 'temp2.wav';
     fs.writeFileSync(wavFilePath, Buffer.from(blob, 'base64'));
-    const finalPath = 'output.wav';
+    const finalPath = 'validation_output.wav';
 
-    ffmpeg()
+    await ffmpeg()
         .input(wavFilePath)
         .audioCodec('libmp3lame')
         .toFormat('wav')
@@ -31,17 +32,40 @@ function validateAudio(blob, answer, username) {
             fs.unlinkSync(wavFilePath);
         })
         .save(finalPath);
+    
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+    await delay(1000)
+    file = fs.readFileSync(finalPath);
+    
+    await user.updateUserVerificationSample(username, file);
 
-    return (Math.random() > 0.2);
+    const formData = new FormData();
+    formData.append('username', username);
+
+    const verificationResponse = await fetch('http://127.0.0.1:5000/verify', {
+        method: 'POST',
+        body: formData,
+    });
+
+    const transcriptionResponse = await fetch('http://127.0.0.1:5000/transcribe', {
+        method: 'POST',
+        body: formData,
+    });
+
+    const userIsVerified = await verificationResponse.json();
+    const userAnswer = await transcriptionResponse.json();
+
+    // we can return this separately
+    return userIsVerified.user_verified && userAnswer.text === answer.toLowerCase();
 }
 
-function saveInitialAudio(blob, username) {
+async function saveInitialAudio(blob, username) {
     //save in db
     const wavFilePath = 'temp.wav';
     fs.writeFileSync(wavFilePath, Buffer.from(blob, 'base64'));
-    const finalPath = 'output2.wav';
+    const finalPath = 'initial_output.wav';
 
-    ffmpeg()
+    await ffmpeg()
         .input(wavFilePath)
         .audioCodec('libmp3lame')
         .toFormat('wav')
@@ -54,6 +78,12 @@ function saveInitialAudio(blob, username) {
             fs.unlinkSync(wavFilePath);
         })
         .save(finalPath);
+
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+    await delay(1000)
+    file = fs.readFileSync(finalPath);
+    
+    await user.updateUserVoiceSample(username, file);
 }
 
 

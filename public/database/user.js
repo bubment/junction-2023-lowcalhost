@@ -13,6 +13,9 @@ const User = database.sequelize.define(
     voice_sample: {
       type: Sequelize.BLOB,
     },
+    verification_sample: {
+      type: Sequelize.BLOB,
+    },
   },
   {
     tableName: "user",
