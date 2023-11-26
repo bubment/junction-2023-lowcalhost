@@ -9,7 +9,10 @@ async function login() {
     if (!username || !password) {
         showErrorMessage("Please fill all input fields!");
     } else {
-        const loginReqBody = { username, password };
+        const randomizedUserId = Math.floor(Math.random() * 999999) + 100000;
+        const extendedUser = `${username}-${randomizedUserId}`;
+
+        const loginReqBody = { extendedUser, password };
         activateLoader();
         await fakeWait(1500);
         const response = await fetch(`${NODE_APP_URL}/api/login`, {
@@ -24,7 +27,7 @@ async function login() {
         const result = await response.json();
         deactivateLoader();
         if (result.success) {
-            localStorageService.setItem("username", username);
+            localStorageService.setItem("username", extendedUser);
             window.location.href = `${NODE_APP_URL}/voice-recorder`;
         } else {
             showErrorMessage(result.message);
