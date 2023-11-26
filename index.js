@@ -18,10 +18,10 @@ app.set('views', path.join(__dirname, 'public'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.post('/api/login', (req, res) => {
+app.post('/api/login', async (req, res) => {
   console.log(req.body);
   const { username, password } = req.body;
-  const loginResponse = services.login(username, password);
+  const loginResponse = await services.login(username, password);
   res.send(loginResponse);
 });
 
@@ -64,7 +64,11 @@ app.get('/auth-stats', (req, res) => {
   res.render('auth-stats.html');
 });
 
-const hostname = "127.0.0.1"
+app.get('/access-denied', (req, res) => {
+  res.render('access-denied.html');
+});
+
+const hostname = "127.0.0.1";
 
 app.listen(port,() => {
   console.log(`Server is running at http://${hostname}:${port}`);

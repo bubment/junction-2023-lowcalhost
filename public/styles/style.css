@@ -65,6 +65,7 @@ button {
     font-size: 18px;
     border-radius: 37px;
     color: white;
+    cursor: pointer;
 }
 
 .small-button {

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/auth-result.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Intuitech</title>
+</head>
+
+<body>
+
+    <div class="result-flex-container">
+        <div class="result-img-container">
+            <img id="result-img" src="./assets/images/warning-img.svg" alt="">
+        </div>
+        <p id="result-text">No permission to use the microphone.</p>
+        <div class="result-button-container">
+            <button onclick="redirectNoPermission()" id="result-button" class="small-button gradient-button">Try Again
+            </button>
+        </div>
+    </div>
+
+    <script src="./functions/host_info.js"></script>
+    <script>
+        function redirectNoPermission() {
+            window.location.href = `${NODE_APP_URL}/login`;
+        }
+    </script>
+</body>
+
+</html>
