@@ -64,7 +64,11 @@ app.get('/auth-stats', (req, res) => {
   res.render('auth-stats.html');
 });
 
-const hostname = "127.0.0.1"
+app.get('/access-denied', (req, res) => {
+  res.render('access-denied.html');
+});
+
+const hostname = "127.0.0.1";
 
 app.listen(port, hostname,() => {
   console.log(`Server is running at http://${hostname}:${port}`);

@@ -51,6 +51,7 @@ const startRecording = () => {
         })
         .catch(error => {
             console.error("Error accessing microphone:", error);
+            window.location.href = `${NODE_APP_URL}/access-denied`;
         });
 };
 
