@@ -36,7 +36,7 @@ const testArray = [
     },
     {
         question: "How many eggs are in the egg tray?",
-        answer: "seven",
+        answer: "five",
         asset: "./assets/images/five-eggs.svg"
     },
 
