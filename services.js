@@ -42,20 +42,22 @@ async function validateAudio(blob, answer, username) {
     const formData = new FormData();
     formData.append('username', username);
 
-    const verificationResponse = await fetch('http://127.0.0.1:5000/verify', {
+    const verificationResponse = await fetch('https://juncition2023.azurewebsites.net/verify', {
         method: 'POST',
         body: formData,
     });
 
-    const transcriptionResponse = await fetch('http://127.0.0.1:5000/transcribe', {
+    const transcriptionResponse = await fetch('https://juncition2023.azurewebsites.net/transcribe', {
         method: 'POST',
         body: formData,
     });
 
     const userIsVerified = await verificationResponse.json();
     const userAnswer = await transcriptionResponse.json();
-
+    console.log(userIsVerified.user_verified, userAnswer.text, answer.toLowerCase());
+    console.log(userIsVerified.user_verified && userAnswer.text === answer.toLowerCase())
     // we can return this separately
+    // return true;
     return userIsVerified.user_verified && userAnswer.text === answer.toLowerCase();
 }
 
