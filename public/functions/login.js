@@ -4,7 +4,6 @@ localStorageService.clear();
 async function login() {
     const username = document.getElementById("login-username").value;
     const password = document.getElementById("login-password").value;
-    console.log(username, password);
 
     if (!username || !password) {
         showErrorMessage("Please fill all input fields!");

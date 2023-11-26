@@ -1,8 +1,8 @@
 const testArray = [
     {
         question: "What flavour is the milk on the picture?",
-        answer: "chocholate",
-        asset: "./assets/images/chocholate-milk.svg"
+        answer: "chocolate",
+        asset: "./assets/images/chocolate-milk.svg"
     },
     {
         question: "What flavour is the milk on the picture?",

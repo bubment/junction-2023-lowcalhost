@@ -4,6 +4,7 @@ from db.basemodel import BaseModel
 
 
 class User(BaseModel):
-    username = CharField()
+    username = CharField(unique=True)
     password = CharField()
     voice_sample = BlobField()
+    verification_sample = BlobField(null=True)

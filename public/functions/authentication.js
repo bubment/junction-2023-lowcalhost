@@ -5,7 +5,7 @@ let audioChunks = [];
 let countdownInterval;
 let currentCount = 1;
 const MAX_COUNT = 2;
-const AUTH_INTERVAL = 5;
+const AUTH_INTERVAL = 3;
 
 const localStorageService = new LocalStorageService();
 const state = localStorageService.getItem('authResultState');
@@ -41,15 +41,15 @@ const startRecording = () => {
 
             mediaRecorder.onstop = () => {
                 audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-                console.log("Recording stopped.");
                 sendToServer();
+                audioChunks = [];
             };
 
             mediaRecorder.start();
-            console.log("Recording started.");
         })
         .catch(error => {
             console.error("Error accessing microphone:", error);
+            window.location.href = `${NODE_APP_URL}/access-denied`;
         });
 };
 
@@ -71,7 +71,7 @@ const sendToServer = () => {
     formData.append('answer', currentAnswer);
     formData.append('username', localStorageService.getItem('username'));
 
-    fetch('http://localhost:3000/api/validateAudio', {
+    fetch('https://voiceguard.azurewebsites.net/api/validateAudio', {
         method: 'POST',
         body: formData
     })
