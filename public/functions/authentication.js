@@ -72,7 +72,7 @@ const sendToServer = () => {
     formData.append('answer', currentAnswer);
     formData.append('username', localStorageService.getItem('username'));
 
-    fetch('http://127.0.0.1:3000/api/validateAudio', {
+    fetch('https://voiceguard.azurewebsites.net/api/validateAudio', {
         method: 'POST',
         body: formData
     })

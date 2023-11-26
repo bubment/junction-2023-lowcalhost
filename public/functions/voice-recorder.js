@@ -69,7 +69,7 @@ function saveInitialRecording(audioBlob) {
     formData.append('file', audioBlob);
     formData.append('username', localStorageService.getItem('username'));
     activateLoader();
-    fetch('http://127.0.0.1:3000/api/saveAudio', {
+    fetch('https://voiceguard.azurewebsites.net/api/saveAudio', {
         method: 'POST',
         body: formData
     })
