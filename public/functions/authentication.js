@@ -5,7 +5,7 @@ let audioChunks = [];
 let countdownInterval;
 let currentCount = 1;
 const MAX_COUNT = 2;
-const AUTH_INTERVAL = 5;
+const AUTH_INTERVAL = 3;
 
 const localStorageService = new LocalStorageService();
 const state = localStorageService.getItem('authResultState');
@@ -44,6 +44,7 @@ const startRecording = () => {
                 console.log("Recording stopped.");
                 audioChunks = [];
                 sendToServer();
+                audioChunks = [];
             };
 
             mediaRecorder.start();
