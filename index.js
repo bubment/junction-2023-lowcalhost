@@ -66,6 +66,6 @@ app.get('/auth-stats', (req, res) => {
 
 const hostname = "127.0.0.1"
 
-app.listen(port, hostname,() => {
+app.listen(port,() => {
   console.log(`Server is running at http://${hostname}:${port}`);
 });
