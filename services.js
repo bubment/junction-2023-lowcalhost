@@ -5,7 +5,6 @@ const user = require('./public/functions/user');
 ffmpeg.setFfmpegPath(ffmpegPath);
 
 async function login(username, password) {
-    await user.asyncCreateUser(username, password, "");
     const MOCK_LOGIN_CORRECT = true;
 
     return {
@@ -15,9 +14,9 @@ async function login(username, password) {
 }
 
 async function validateAudio(blob, answer, username) {
-    const wavFilePath = 'temp2.wav';
+    const wavFilePath = username+'temp2.wav';
     fs.writeFileSync(wavFilePath, Buffer.from(blob, 'base64'));
-    const finalPath = 'validation_output.wav';
+    const finalPath = username+'validation_output.wav';
 
     await ffmpeg()
         .input(wavFilePath)
@@ -63,9 +62,10 @@ async function validateAudio(blob, answer, username) {
 
 async function saveInitialAudio(blob, username) {
     //save in db
-    const wavFilePath = 'temp.wav';
+
+    const wavFilePath = username+'temp.wav';
     fs.writeFileSync(wavFilePath, Buffer.from(blob, 'base64'));
-    const finalPath = 'initial_output.wav';
+    const finalPath = username+'initial_output.wav';
 
     await ffmpeg()
         .input(wavFilePath)

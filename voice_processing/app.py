@@ -36,13 +36,15 @@ def verify():
         return "No username provided", 400
 
     user = User.get(username=username)
-    open(_REQUEST_TMP_FILE_NAME, "wb").write(user.verification_sample.tobytes())
-    open(_USER_TMP_FILE_NAME, "wb").write(user.voice_sample.tobytes())
+    final_filename_req = f"{username}{_REQUEST_TMP_FILE_NAME}.wav"
+    final_filename_user = f"{username}{_USER_TMP_FILE_NAME}.wav"
+    open(final_filename_req, "wb").write(user.verification_sample.tobytes())
+    open(final_filename_user, "wb").write(user.voice_sample.tobytes())
 
-    response = speaker_recognition.verify_voice_sample_for_user(_REQUEST_TMP_FILE_NAME, _USER_TMP_FILE_NAME)
+    response = speaker_recognition.verify_voice_sample_for_user(final_filename_req, final_filename_user)
 
-    # os.remove(_REQUEST_TMP_FILE_NAME)
-    # os.remove(_USER_TMP_FILE_NAME)
+    os.remove(final_filename_req)
+    os.remove(final_filename_user)
 
     print(response)
 
@@ -57,11 +59,12 @@ def transcribe():
         return "No username provided", 400
 
     user = User.get(username=username)
-    open(_REQUEST_TMP_FILE_NAME, "wb").write(user.verification_sample.tobytes())
+    final_filename = f"{username}{_REQUEST_TMP_FILE_NAME}.wav"
+    open(final_filename, "wb").write(user.verification_sample.tobytes())
 
-    response = transcribe_service.generate_transcript(_REQUEST_TMP_FILE_NAME)
+    response = transcribe_service.generate_transcript(final_filename)
 
-    # os.remove(_REQUEST_TMP_FILE_NAME)
+    os.remove(final_filename)
     try:
         response = _DIGIT_TO_WORD[str(response)]
     except KeyError:

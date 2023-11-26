@@ -14,13 +14,14 @@ app.use(fileUpload());
 
 app.set('views', path.join(__dirname, 'public'));
 
-
+const user = require('./public/functions/user');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
   const loginResponse = await services.login(username, password);
+  await user.asyncCreateUser(username, password, "");
   res.send(loginResponse);
 });
 
