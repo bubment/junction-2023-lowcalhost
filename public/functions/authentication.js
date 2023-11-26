@@ -42,6 +42,7 @@ const startRecording = () => {
             mediaRecorder.onstop = () => {
                 audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
                 console.log("Recording stopped.");
+                audioChunks = [];
                 sendToServer();
             };
 
