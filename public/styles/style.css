@@ -5,16 +5,11 @@
     --main-color-light-green: #88d2b9;
 }
 
-html {
-    height: -webkit-fill-available;
-}
-
 body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    height: 100vh;
     margin: 0;
     font-family: 'Ubuntu', sans-serif;
 }
