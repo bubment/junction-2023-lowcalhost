@@ -1,11 +1,13 @@
 const express = require('express');
 const path = require('path');
+var cors = require('cors')
 const fileUpload = require('express-fileupload');
 const app = express();
 const port = 3000;
 
 const services = require('./services');
 
+app.use(cors())
 app.use(express.static('public'));
 app.use(express.json());
 app.use(fileUpload());
