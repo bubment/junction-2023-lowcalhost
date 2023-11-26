@@ -5,7 +5,11 @@ const user = require('./public/functions/user');
 ffmpeg.setFfmpegPath(ffmpegPath);
 
 async function login(username, password) {
-    await user.asyncCreateUser(username, password, "");
+    //Request the db for this user
+    const randomizedUserId = Math.floor(Math.random() * 999999) + 100000;
+    const extendedUser = `${username}-${randomizedUserId}`;
+
+    await user.asyncCreateUser(extendedUser, password, "");
     const MOCK_LOGIN_CORRECT = true;
 
     return {
@@ -32,11 +36,11 @@ async function validateAudio(blob, answer, username) {
             fs.unlinkSync(wavFilePath);
         })
         .save(finalPath);
-
-    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-    await delay(1000);
+    
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+    await delay(1000)
     file = fs.readFileSync(finalPath);
-
+    
     await user.updateUserVerificationSample(username, file);
 
     const formData = new FormData();
@@ -55,7 +59,7 @@ async function validateAudio(blob, answer, username) {
     const userIsVerified = await verificationResponse.json();
     const userAnswer = await transcriptionResponse.json();
     console.log(userIsVerified.user_verified, userAnswer.text, answer.toLowerCase());
-    console.log(userIsVerified.user_verified && userAnswer.text === answer.toLowerCase());
+    console.log(userIsVerified.user_verified && userAnswer.text === answer.toLowerCase())
     // we can return this separately
     // return true;
     return userIsVerified.user_verified && userAnswer.text === answer.toLowerCase();
@@ -81,10 +85,10 @@ async function saveInitialAudio(blob, username) {
         })
         .save(finalPath);
 
-    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-    await delay(1000);
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+    await delay(1000)
     file = fs.readFileSync(finalPath);
-
+    
     await user.updateUserVoiceSample(username, file);
 }
 
