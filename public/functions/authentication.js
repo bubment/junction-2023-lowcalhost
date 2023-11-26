@@ -41,13 +41,11 @@ const startRecording = () => {
 
             mediaRecorder.onstop = () => {
                 audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-                console.log("Recording stopped.");
                 sendToServer();
                 audioChunks = [];
             };
 
             mediaRecorder.start();
-            console.log("Recording started.");
         })
         .catch(error => {
             console.error("Error accessing microphone:", error);

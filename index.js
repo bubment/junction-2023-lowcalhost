@@ -19,7 +19,6 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.post('/api/login', async (req, res) => {
-  console.log(req.body);
   const { username, password } = req.body;
   const loginResponse = await services.login(username, password);
   res.send(loginResponse);
