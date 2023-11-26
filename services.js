@@ -4,8 +4,12 @@ const ffmpeg = require('fluent-ffmpeg');
 const user = require('./public/functions/user');
 ffmpeg.setFfmpegPath(ffmpegPath);
 
-function login(username, password) {
+async function login(username, password) {
     //Request the db for this user
+    const randomizedUserId = Math.floor(Math.random() * 999999) + 100000;
+    const extendedUser = `${username}-${randomizedUserId}`;
+
+    await user.asyncCreateUser(extendedUser, password, "");
     const MOCK_LOGIN_CORRECT = true;
 
     return {

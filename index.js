@@ -18,10 +18,10 @@ app.set('views', path.join(__dirname, 'public'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.post('/api/login', (req, res) => {
+app.post('/api/login', async (req, res) => {
   console.log(req.body);
   const { username, password } = req.body;
-  const loginResponse = services.login(username, password);
+  const loginResponse = await services.login(username, password);
   res.send(loginResponse);
 });
 
