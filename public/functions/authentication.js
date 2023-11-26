@@ -42,7 +42,6 @@ const startRecording = () => {
             mediaRecorder.onstop = () => {
                 audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
                 console.log("Recording stopped.");
-                audioChunks = [];
                 sendToServer();
                 audioChunks = [];
             };
@@ -73,7 +72,7 @@ const sendToServer = () => {
     formData.append('answer', currentAnswer);
     formData.append('username', localStorageService.getItem('username'));
 
-    fetch('http://localhost:3000/api/validateAudio', {
+    fetch('http://127.0.0.1:3000/api/validateAudio', {
         method: 'POST',
         body: formData
     })
